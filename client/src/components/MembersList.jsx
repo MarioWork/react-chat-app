@@ -51,6 +51,12 @@ const MembersList = ({ client, channel, setShowMemberList }) => {
     channel.addMembers(membersArray);
   }
 
+  function removeMember(id) {
+    const membersArray = [];
+    membersArray.push(id);
+    channel.removeMembers(membersArray);
+  }
+
   return (
     <StyledMembersList>
       <Modal>
@@ -74,6 +80,7 @@ const MembersList = ({ client, channel, setShowMemberList }) => {
                 key={user.id}
                 user={user}
                 addMember={addMember}
+                removeMember={removeMember}
                 channelMembersIds={channelMembersIds}
               />
             ))}

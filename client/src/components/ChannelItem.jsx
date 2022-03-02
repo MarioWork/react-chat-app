@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUserPlus } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { StyledChannelItem } from "./styles/ChannelItem.styled";
 
 const ChannelItem = ({ channel, onClick, setShowMemberList }) => {
@@ -17,7 +17,7 @@ const ChannelItem = ({ channel, onClick, setShowMemberList }) => {
         <h2>{channel.data.name.charAt(0).toUpperCase()}</h2>
       )}
       <p>{channel.data.name}</p>
-      <FaUserPlus onClick={addMemberClick} color="blue" />
+      <FaUser onClick={addMemberClick} color="blue" />
     </StyledChannelItem>
   );
 };
