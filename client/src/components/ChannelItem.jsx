@@ -1,16 +1,23 @@
 import React from "react";
+import { FaUserPlus } from "react-icons/fa";
 import { StyledChannelItem } from "./styles/ChannelItem.styled";
 
-const ChannelItem = ({ channel }) => {
-  console.log(channel);
+const ChannelItem = ({ channel, onClick, setShowMemberList }) => {
+  function addMemberClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setShowMemberList((prev) => !prev);
+  }
+
   return (
-    <StyledChannelItem>
+    <StyledChannelItem onClick={onClick}>
       {channel.data.image ? (
         <img src={channel.data.image} alt="" />
       ) : (
         <h2>{channel.data.name.charAt(0).toUpperCase()}</h2>
       )}
       <p>{channel.data.name}</p>
+      <FaUserPlus onClick={addMemberClick} color="blue" />
     </StyledChannelItem>
   );
 };

@@ -5,6 +5,7 @@ import { API_KEY } from "./secrets";
 import AuthForm from "./components/AuthForm";
 import SideBar from "./components/SideBar";
 import ChatContainer from "./components/ChatContainer";
+import MembersList from "./components/MembersList";
 import { AppContainer } from "./components/styles/AppContainer.styled";
 
 const cookies = new Cookies();
@@ -28,6 +29,7 @@ if (authToken) {
 
 function App() {
   const [selectedChannel, setSelectedChannel] = useState({});
+  const [showMemberList, setShowMemberList] = useState(true);
 
   if (!authToken) {
     return <AuthForm />;
@@ -35,7 +37,18 @@ function App() {
 
   return (
     <AppContainer>
-      <SideBar client={client} setSelectedChannel={setSelectedChannel} />
+      <SideBar
+        client={client}
+        setSelectedChannel={setSelectedChannel}
+        setShowMemberList={setShowMemberList}
+      />
+      {showMemberList && (
+        <MembersList
+          client={client}
+          setShowMemberList={setShowMemberList}
+          channel={selectedChannel}
+        />
+      )}
       <ChatContainer client={client} selectedChannel={selectedChannel} />
     </AppContainer>
   );

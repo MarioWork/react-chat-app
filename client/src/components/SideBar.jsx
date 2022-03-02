@@ -5,23 +5,24 @@ import {
   ChannelsContainerHeader,
   ListContainer,
   InteriorContainer,
+  InteriorContainerFooter,
 } from "./styles/SideBar.styled";
 import ChannelItem from "./ChannelItem";
 import Cookies from "universal-cookie";
 
-const SideBar = ({ client, setSelectedChannel }) => {
+const SideBar = ({ client, setSelectedChannel, setShowMemberList }) => {
   const cookies = new Cookies();
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
+    const filter = { members: { $in: [`${cookies.get("userId")}`] } };
+
     //Get channels
-    client.queryChannels().then((data) => {
+    client.queryChannels(filter).then((data) => {
       setChannels(data);
       setSelectedChannel(data[0]);
     });
   }, [client, setSelectedChannel]);
-
-  console.log(channels);
 
   //Logout user
   const handleLogout = (e) => {
@@ -45,8 +46,9 @@ const SideBar = ({ client, setSelectedChannel }) => {
     });
   };
 
-  function channelSelection(e) {
-    e.preventDefault();
+  function channelSelection(cid) {
+    const channel = channels.find((_channel) => cid === _channel.cid);
+    setSelectedChannel(channel);
   }
 
   return (
@@ -62,11 +64,17 @@ const SideBar = ({ client, setSelectedChannel }) => {
                 <ChannelItem
                   key={channel.cid}
                   channel={channel}
-                  onClick={channelSelection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    channelSelection(channel.cid);
+                  }}
+                  setShowMemberList={setShowMemberList}
                 />
               ))}
           </ListContainer>
-          <button onClick={handleLogout}>Logout</button>
+          <InteriorContainerFooter>
+            <button onClick={handleLogout}>Logout</button>
+          </InteriorContainerFooter>
         </InteriorContainer>
       </ChannelsContainer>
     </StyledSideBar>

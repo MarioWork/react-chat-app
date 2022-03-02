@@ -6,6 +6,7 @@ export const StyledChannelItem = styled.div`
     padding: .5em 1em .5em 1em;
     margin-bottom: .2em;
     border-radius: 20px;
+    width: 90%;
     cursor:pointer;
     
     &:hover{
@@ -23,6 +24,12 @@ export const StyledChannelItem = styled.div`
         margin-right: .5rem;
         border-radius: 50%;
         border: 3px solid #DBDBDB;
+    }
+
+
+    & > p{
+        padding-right: .5em;
+        margin-right: auto;
     }
 
     & > img{
