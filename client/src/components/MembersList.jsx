@@ -23,6 +23,10 @@ const MembersList = ({ client, channel, setShowMemberList }) => {
           name: { $autocomplete: searchUser },
         })
         .then((data) => setUsers(data.users));
+    } else {
+      channel
+        .queryMembers({})
+        .then((data) => setUsers(data.members.map((member) => member.user)));
     }
   }, [searchUser]);
 
