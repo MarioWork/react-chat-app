@@ -29,7 +29,7 @@ if (authToken) {
 
 function App() {
   const [selectedChannel, setSelectedChannel] = useState({});
-  const [showMemberList, setShowMemberList] = useState(true);
+  const [showMemberList, setShowMemberList] = useState(false);
 
   if (!authToken) {
     return <AuthForm />;
