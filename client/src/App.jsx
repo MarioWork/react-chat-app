@@ -1,11 +1,15 @@
-import AuthForm from "./components/AuthForm";
-import ChatContainer from "./components/ChatContainer";
+import { useState } from "react";
 import { StreamChat } from "stream-chat";
 import Cookies from "universal-cookie";
 import { API_KEY } from "./secrets";
+import AuthForm from "./components/AuthForm";
+import SideBar from "./components/SideBar";
+import ChatContainer from "./components/ChatContainer";
+import { AppContainer } from "./components/styles/AppContainer.styled";
 
 const cookies = new Cookies();
 const authToken = cookies.get("token");
+
 const client = StreamChat.getInstance(API_KEY);
 
 //Check if there is a user logged in
@@ -23,28 +27,17 @@ if (authToken) {
 }
 
 function App() {
-  //Logout user
-  const handleLogout = (e) => {
-    e.preventDefault();
-
-    cookies.remove("token");
-    cookies.remove("userId");
-    cookies.remove("username");
-    cookies.remove("fullName");
-    cookies.remove("hashedPassword");
-    cookies.remove("phoneNumber");
-
-    window.location.reload();
-  };
+  const [selectedChannel, setSelectedChannel] = useState({});
 
   if (!authToken) {
     return <AuthForm />;
   }
+
   return (
-    <>
-      <ChatContainer client={client} />
-      <button onClick={handleLogout}>Logout</button>
-    </>
+    <AppContainer>
+      <SideBar client={client} setSelectedChannel={setSelectedChannel} />
+      <ChatContainer client={client} selectedChannel={selectedChannel} />
+    </AppContainer>
   );
 }
 
