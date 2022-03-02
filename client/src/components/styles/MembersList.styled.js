@@ -16,6 +16,10 @@ export const Modal = styled.div`
     height: 70%;
     border-radius:20px;
     background-color: white;
+
+    @media(max-width: 768px){
+        width: 50%;
+    }
 `;
 
 export const ModalHeader = styled.div`

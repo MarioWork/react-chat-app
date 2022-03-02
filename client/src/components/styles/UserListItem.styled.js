@@ -5,7 +5,13 @@ export const StyledUserListItem = styled.div`
     display:flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    border: 3px solid #DBDBDB;
+    border-radius: 55px;
+    padding-right: 1em;
+   
+    @media(max-width: 768px){
+        width: 90%;
+    }
 
     & > p{
         display: flex;
@@ -15,8 +21,8 @@ export const StyledUserListItem = styled.div`
         height:50px;
         font-size: 2em;
         margin-right: .5rem;
-        border-radius: 50%;
-        border: 3px solid #DBDBDB;
+        border-radius: 0 50% 50% 0;;
+        border-right: 3px solid #DBDBDB;
     }
 
 
