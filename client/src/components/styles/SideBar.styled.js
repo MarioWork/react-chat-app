@@ -7,6 +7,12 @@ export const StyledSideBar = styled.div`
     display:flex;
     flex-direction: column;
     padding: 1.02em 1em 0em 0.5em;
+
+    @media(max-width: 768px){
+        width: 40vw;
+        padding: .30em 1em 0em 0.5em;
+
+    }
 `;
 
 export const ChannelsContainer = styled.div`
