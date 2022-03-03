@@ -22,6 +22,20 @@ const SideBar = ({
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
+    getChannels();
+    const addedToChannelEven = client.on(
+      "notification.added_to_channel",
+      (e) => {
+        getChannels();
+      }
+    );
+
+    return () => {
+      addedToChannelEven.unsubscribe();
+    };
+  }, []);
+
+  function getChannels() {
     const filter = { members: { $in: [`${cookies.get("userId")}`] } };
 
     //Get channels
@@ -29,7 +43,7 @@ const SideBar = ({
       setChannels(data);
       setSelectedChannel(data[0]);
     });
-  }, [client, setSelectedChannel]);
+  }
 
   //Logout user
   const handleLogout = (e) => {

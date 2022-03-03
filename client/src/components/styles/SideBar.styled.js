@@ -45,6 +45,7 @@ export const InteriorContainer = styled.div`
 export const ListContainer = styled.div`
     padding: 0em;
     min-height: 90%;
+    max-height: 90%;
     overflow-y: auto;
     display: flex;
     justify-content: flex-start;

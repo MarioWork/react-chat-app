@@ -63,6 +63,7 @@ export const HeaderSearchPart = styled.div`
 
 export const ModalBody = styled.div`
     height: 75%;
+    max-height: 75%;
     display: flex;
     flex-direction: column;
     overflow-y: auto;

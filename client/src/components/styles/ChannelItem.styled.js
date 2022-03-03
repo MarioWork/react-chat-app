@@ -51,3 +51,11 @@ export const StyledChannelItem = styled.div`
         margin-right: .5rem;
 }
 `;
+
+export const Line = styled.span`
+    height:1px;
+    width:100%;
+    background-color: lightgrey;
+    margin-bottom: 1em;
+    margin-top: 1em;
+`;
