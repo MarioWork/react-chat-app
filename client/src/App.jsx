@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StreamChat } from "stream-chat";
 import { API_KEY } from "./secrets";
 import Cookies from "universal-cookie";
@@ -12,28 +12,41 @@ import {
 import { AppContainer } from "./components/styles/AppContainer.styled";
 
 const cookies = new Cookies();
+const client = StreamChat.getInstance(API_KEY);
 const authToken = cookies.get("token");
 
-const client = StreamChat.getInstance(API_KEY);
-
-//Check if there is a user logged in
-if (authToken) {
-  client.connectUser(
-    {
-      id: cookies.get("userId"),
-      name: cookies.get("username"),
-      fullName: cookies.get("fullName"),
-      hashedPassword: cookies.get("hashedPassword"),
-      phoneNumber: cookies.get("phoneNumber"),
-    },
-    authToken
-  );
-}
-
 function App() {
-  const [selectedChannel, setSelectedChannel] = useState({});
+  const [selectedChannel, setSelectedChannel] = useState(null);
   const [showMemberList, setShowMemberList] = useState(false);
   const [showCreateChannelModal, setShowCreateChannelModal] = useState(false);
+
+  useEffect(() => {
+    //Check if there is a user logged in
+    if (authToken) {
+      client.connectUser(
+        {
+          id: cookies.get("userId"),
+          name: cookies.get("username"),
+          fullName: cookies.get("fullName"),
+          hashedPassword: cookies.get("hashedPassword"),
+          phoneNumber: cookies.get("phoneNumber"),
+        },
+        authToken
+      );
+    }
+  }, []);
+
+  //console.log(selectedChannel.state.messages);
+  /*   let messages = [];
+
+  if (selectedChannel) {
+    selectedChannel.on("message.new", (e) => {
+      if (!messages.includes(e.message)) {
+        messages.push(e.message);
+      }
+    });
+  }
+  console.log(messages); */
 
   if (!authToken) {
     return <AuthForm />;
