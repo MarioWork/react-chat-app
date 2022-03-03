@@ -8,7 +8,7 @@ import {
   InteriorContainerFooter,
 } from "./styles/SideBar.styled";
 import { FaPlus } from "react-icons/fa";
-import ChannelItem from "./ChannelItem";
+import { ChannelItem } from "./";
 import Cookies from "universal-cookie";
 
 const SideBar = ({

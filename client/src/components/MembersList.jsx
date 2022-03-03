@@ -8,7 +8,7 @@ import {
   HeaderTopPart,
   HeaderSearchPart,
 } from "./styles/MembersList.styled";
-import UserListItem from "./UserListItem";
+import { UserListItem } from "./";
 
 const MembersList = ({ client, channel, setShowMemberList }) => {
   const [users, setUsers] = useState([]);

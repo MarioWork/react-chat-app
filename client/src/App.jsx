@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { StreamChat } from "stream-chat";
-import Cookies from "universal-cookie";
 import { API_KEY } from "./secrets";
-import AuthForm from "./components/AuthForm";
-import SideBar from "./components/SideBar";
-import ChatContainer from "./components/ChatContainer";
-import MembersList from "./components/MembersList";
-import CreateChannelModal from "./components/CreateChannelModal";
+import Cookies from "universal-cookie";
+import {
+  AuthForm,
+  SideBar,
+  ChatContainer,
+  MembersList,
+  CreateChannelModal,
+} from "./components";
 import { AppContainer } from "./components/styles/AppContainer.styled";
 
 const cookies = new Cookies();
