@@ -8,45 +8,46 @@ export const StyledChannelItem = styled.div`
     border-radius: 20px;
     width: 90%;
     cursor:pointer;
+    box-shadow: ${props => props.isSelected ? "0 4px 8px 0 rgba(0,0,0,0.2)" : "none"};
 
-    @media(max-width: 768px){
-        width:95%;
-        padding: .5em;
+    @media(max-width: 768px) {
+    width: 95 %;
+    padding: .5em;
 
         & > p{
-            font-size:1em;
-        }
+            font-size: 1em;
     }
+}
     
     &:hover{
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-    }
+}
 
     & > h2{
         display: flex;
         justify-content: center;
         align-items: center;
-        width:50px;
-        height:50px;
+        width: 50px;
+        height: 50px;
         font-size: 2em;
         margin-right: .5rem;
         border-radius: 50%;
         border: 3px solid #DBDBDB;
-    }
+}
 
 
     & > p{
         padding-right: .5em;
         margin-right: auto;
-    }
+}
 
     & > img{
-        width:50px;
-        height:50px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         border: 3px solid #DBDBDB;
         object-fit: cover;
         margin-right: .5rem;
-    }
+}
 `;

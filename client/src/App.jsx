@@ -38,7 +38,7 @@ function App() {
 
   //console.log(selectedChannel.state.messages);
   /*   let messages = [];
-
+  
   if (selectedChannel) {
     selectedChannel.on("message.new", (e) => {
       if (!messages.includes(e.message)) {
@@ -46,7 +46,14 @@ function App() {
       }
     });
   }
-  console.log(messages); */
+  console.log(messages); 
+  
+  if (selectedChannel) {
+    selectedChannel.on("USER.PRESENCE.CHANGED", (event) => {
+      console.log(event);
+    });
+  }
+  */
 
   if (!authToken) {
     return <AuthForm />;
@@ -59,7 +66,9 @@ function App() {
         setSelectedChannel={setSelectedChannel}
         setShowMemberList={setShowMemberList}
         setShowCreateChannelModal={setShowCreateChannelModal}
+        selectedChannel={selectedChannel}
       />
+
       {showMemberList && (
         <MembersList
           client={client}

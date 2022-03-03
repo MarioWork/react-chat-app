@@ -3,7 +3,12 @@ import { FaUser } from "react-icons/fa";
 import { StyledChannelItem } from "./styles/ChannelItem.styled";
 import Cookies from "universal-cookie";
 
-const ChannelItem = ({ channel, onClick, setShowMemberList }) => {
+const ChannelItem = ({
+  channel,
+  onClick,
+  setShowMemberList,
+  selectedChannel,
+}) => {
   const [isOwner, setIsOwner] = useState(false);
   const cookies = new Cookies();
 
@@ -18,14 +23,19 @@ const ChannelItem = ({ channel, onClick, setShowMemberList }) => {
   }
 
   return (
-    <StyledChannelItem onClick={onClick}>
+    <StyledChannelItem
+      onClick={onClick}
+      isSelected={selectedChannel === channel}
+    >
       {channel.data.image ? (
         <img src={channel.data.image} alt="" />
       ) : (
         <h2>{channel.data.name.charAt(0).toUpperCase()}</h2>
       )}
       <p>{channel.data.name}</p>
-      {isOwner && <FaUser onClick={addMemberClick} color="blue" />}
+      {isOwner && selectedChannel === channel && (
+        <FaUser onClick={addMemberClick} color="blue" />
+      )}
     </StyledChannelItem>
   );
 };

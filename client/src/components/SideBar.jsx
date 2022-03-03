@@ -13,6 +13,7 @@ import Cookies from "universal-cookie";
 
 const SideBar = ({
   client,
+  selectedChannel,
   setSelectedChannel,
   setShowMemberList,
   setShowCreateChannelModal,
@@ -70,6 +71,7 @@ const SideBar = ({
                 <ChannelItem
                   key={channel.cid}
                   channel={channel}
+                  selectedChannel={selectedChannel}
                   onClick={(e) => {
                     e.preventDefault();
                     channelSelection(channel.cid);
