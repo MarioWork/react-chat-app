@@ -6,6 +6,7 @@ import AuthForm from "./components/AuthForm";
 import SideBar from "./components/SideBar";
 import ChatContainer from "./components/ChatContainer";
 import MembersList from "./components/MembersList";
+import CreateChannelModal from "./components/CreateChannelModal";
 import { AppContainer } from "./components/styles/AppContainer.styled";
 
 const cookies = new Cookies();
@@ -30,6 +31,7 @@ if (authToken) {
 function App() {
   const [selectedChannel, setSelectedChannel] = useState({});
   const [showMemberList, setShowMemberList] = useState(false);
+  const [showCreateChannelModal, setShowCreateChannelModal] = useState(false);
 
   if (!authToken) {
     return <AuthForm />;
@@ -41,6 +43,7 @@ function App() {
         client={client}
         setSelectedChannel={setSelectedChannel}
         setShowMemberList={setShowMemberList}
+        setShowCreateChannelModal={setShowCreateChannelModal}
       />
       {showMemberList && (
         <MembersList
@@ -49,6 +52,14 @@ function App() {
           channel={selectedChannel}
         />
       )}
+
+      {showCreateChannelModal && (
+        <CreateChannelModal
+          client={client}
+          setShowCreateChannelModal={setShowCreateChannelModal}
+        />
+      )}
+
       <ChatContainer client={client} selectedChannel={selectedChannel} />
     </AppContainer>
   );

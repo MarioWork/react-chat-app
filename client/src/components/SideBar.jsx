@@ -7,10 +7,16 @@ import {
   InteriorContainer,
   InteriorContainerFooter,
 } from "./styles/SideBar.styled";
+import { FaPlus } from "react-icons/fa";
 import ChannelItem from "./ChannelItem";
 import Cookies from "universal-cookie";
 
-const SideBar = ({ client, setSelectedChannel, setShowMemberList }) => {
+const SideBar = ({
+  client,
+  setSelectedChannel,
+  setShowMemberList,
+  setShowCreateChannelModal,
+}) => {
   const cookies = new Cookies();
   const [channels, setChannels] = useState([]);
 
@@ -38,14 +44,6 @@ const SideBar = ({ client, setSelectedChannel, setShowMemberList }) => {
     window.location.reload();
   };
 
-  const createChannel = (e) => {
-    const channel = client.channel("messaging", "Teste", {
-      image: "https://www.drupal.org/files/project-images/react.png",
-      name: "Talk about React",
-      members: [cookies.get("userId")],
-    });
-  };
-
   function channelSelection(cid) {
     const channel = channels.find((_channel) => cid === _channel.cid);
     setSelectedChannel(channel);
@@ -56,6 +54,14 @@ const SideBar = ({ client, setSelectedChannel, setShowMemberList }) => {
       <ChannelsContainer>
         <ChannelsContainerHeader>
           <h3>Channels</h3>
+          <FaPlus
+            cursor="pointer"
+            fontSize="1em"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowCreateChannelModal(true);
+            }}
+          />
         </ChannelsContainerHeader>
         <InteriorContainer>
           <ListContainer>

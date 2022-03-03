@@ -66,7 +66,7 @@ const MembersList = ({ client, channel, setShowMemberList }) => {
       <Modal>
         <ModalHeader>
           <HeaderTopPart>
-            <h2>Users</h2>
+            <h2>{channel.data.name} Users</h2>
             <FaTimes fontSize="2em" cursor="pointer" onClick={closeModal} />
           </HeaderTopPart>
           <HeaderSearchPart>

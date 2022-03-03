@@ -24,10 +24,17 @@ export const ChannelsContainer = styled.div`
 
 export const ChannelsContainerHeader = styled.div`
     height:10%;
+    width:100%;
+    padding: 0em 2em 0em 2em;
     box-shadow: 0px 5px 10px lightgrey;
     display:flex;
     justify-content: center;
     align-items: center;
+
+    & > h3 {
+        width: 100%;
+        margin-right: auto;
+    }
 `;
 
 export const InteriorContainer = styled.div`
