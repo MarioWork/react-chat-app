@@ -26,7 +26,10 @@ const SideBar = ({
     const addedToChannelEven = client.on(
       "notification.added_to_channel",
       (e) => {
-        getChannels();
+        if (e.member.user_id === cookies.get("userId")) {
+          console.log(e.member.user_id);
+          getChannels();
+        }
       }
     );
 

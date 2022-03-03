@@ -36,25 +36,6 @@ function App() {
     }
   }, []);
 
-  //console.log(selectedChannel.state.messages);
-  /*   let messages = [];
-  
-  if (selectedChannel) {
-    selectedChannel.on("message.new", (e) => {
-      if (!messages.includes(e.message)) {
-        messages.push(e.message);
-      }
-    });
-  }
-  console.log(messages); 
-  
-  if (selectedChannel) {
-    selectedChannel.on("USER.PRESENCE.CHANGED", (event) => {
-      console.log(event);
-    });
-  }
-  */
-
   if (!authToken) {
     return <AuthForm />;
   }
