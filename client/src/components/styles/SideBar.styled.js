@@ -6,28 +6,30 @@ export const StyledSideBar = styled.div`
     height: 100vh;
     display:flex;
     flex-direction: column;
-    padding: 1.02em 1em 0em 0.5em;
+    padding: 1.02em .5em 0em 0.5em;
 
     @media(max-width: 768px){
         width: 40vw;
-        padding: .30em 1em 0em 0.5em;
-
+        padding: .30em .5em 0em 0.5em;
     }
 `;
 
 export const ChannelsContainer = styled.div`
     background-color: white;
     height:100%;
-    border-radius: 10px 10px 0px 0px;
     padding: 0em 0em 1em 0em;
+    border-radius: 10px 10px 0px 0px;
 `;
 
 export const ChannelsContainerHeader = styled.div`
     height:10%;
     width:100%;
+    border-radius: 10px 10px 0px 0px;
     padding: 0em 2em 0em 2em;
     box-shadow: 0px 5px 10px lightgrey;
     display:flex;
+    background-color:blue;
+    color: white;
     justify-content: center;
     align-items: center;
 

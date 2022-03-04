@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   StyledSideBar,
   ChannelsContainer,
@@ -17,37 +16,9 @@ const SideBar = ({
   setSelectedChannel,
   setShowMemberList,
   setShowCreateChannelModal,
+  channels,
 }) => {
   const cookies = new Cookies();
-  const [channels, setChannels] = useState([]);
-
-  useEffect(() => {
-    getChannels();
-    const addedToChannelEven = client.on(
-      "notification.added_to_channel",
-      (e) => {
-        if (e.member.user_id === cookies.get("userId")) {
-          console.log(e.member.user_id);
-          getChannels();
-        }
-      }
-    );
-
-    return () => {
-      addedToChannelEven.unsubscribe();
-    };
-  }, []);
-
-  function getChannels() {
-    const filter = { members: { $in: [`${cookies.get("userId")}`] } };
-
-    //Get channels
-    client.queryChannels(filter).then((data) => {
-      setChannels(data);
-      setSelectedChannel(data[0]);
-    });
-  }
-
   //Logout user
   const handleLogout = (e) => {
     e.preventDefault();
