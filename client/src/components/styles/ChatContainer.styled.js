@@ -6,7 +6,7 @@ export const StyledChatContainer = styled.div`
     padding: 1.02em .5em 0em 0em;
 
 
-    @media(max-width: 768px){
+    @media(max-width: ${({ theme }) => theme.mobile}){
         padding: .30em .5em 0em 1em;
     }
 `;
@@ -28,7 +28,7 @@ export const StyledChatHeader = styled.div`
     width: 100%;
     height: 10%;
     box-sizing: border-box;
-    background-color:blue;
+    background-color: ${({ theme }) => theme.colors.primary};
     color: white;
     z-index: 3;
 

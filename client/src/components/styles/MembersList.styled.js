@@ -17,7 +17,7 @@ export const Modal = styled.div`
     border-radius:20px;
     background-color: white;
 
-    @media(max-width: 768px){
+    @media(max-width: ${({ theme }) => theme.mobile}){
         width: 50%;
     }
 `;

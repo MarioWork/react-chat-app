@@ -8,7 +8,7 @@ export const StyledSideBar = styled.div`
     flex-direction: column;
     padding: 1.02em .5em 0em 0.5em;
 
-    @media(max-width: 768px){
+    @media(max-width: ${({ theme }) => theme.mobile}){
         width: 40vw;
         padding: .30em .5em 0em 0.5em;
     }
@@ -28,7 +28,7 @@ export const ChannelsContainerHeader = styled.div`
     padding: 0em 2em 0em 2em;
     box-shadow: 0px 5px 10px lightgrey;
     display:flex;
-    background-color:blue;
+    background-color: ${({ theme }) => theme.colors.primary};
     color: white;
     justify-content: center;
     align-items: center;
@@ -68,14 +68,14 @@ export const InteriorContainerFooter = styled.div`
         font-size: 1em;
         font-weight: bold;
         border-radius: 20px;
-        border: 2px solid blue;
+        border: 2px solid  ${({ theme }) => theme.colors.primary};
         background-color:transparent;
-        color: blue;
+        color:  ${({ theme }) => theme.colors.primary};
         cursor:pointer;
     }
 
     & > button:hover{
-        background-color:blue;
+        background-color: ${({ theme }) => theme.colors.primary};
         color:white;
     }
 `;

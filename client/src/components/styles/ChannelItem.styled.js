@@ -10,8 +10,8 @@ export const StyledChannelItem = styled.div`
     cursor:pointer;
     box-shadow: ${props => props.isSelected ? "0 4px 8px 0 rgba(0,0,0,0.2)" : "none"};
 
-    @media(max-width: 768px) {
-    width: 95 %;
+    @media(max-width: ${({ theme }) => theme.mobile}) {
+    width: 95%;
     padding: .5em;
 
         & > p{

@@ -11,7 +11,6 @@ import { ChannelItem } from "./";
 import Cookies from "universal-cookie";
 
 const SideBar = ({
-  client,
   selectedChannel,
   setSelectedChannel,
   setShowMemberList,

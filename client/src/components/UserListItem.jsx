@@ -38,7 +38,11 @@ const UserListItem = ({ user, addMember, removeMember, channelMembersIds }) => {
           isMember ? (
             <FaTimes color="red" fontSize="1.5em" cursor="pointer" />
           ) : (
-            <FaUserPlus color="blue" fontSize="1.5em" cursor="pointer" />
+            <FaUserPlus
+              color=" ${({ theme }) => theme.colors.primary}"
+              fontSize="1.5em"
+              cursor="pointer"
+            />
           )
         ) : (
           <h4>Admin</h4>

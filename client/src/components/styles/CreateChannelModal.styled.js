@@ -16,7 +16,7 @@ export const Modal = styled.div`
     height: 40%;
     border-radius:20px;
     background-color: white;
-    @media(max-width: 768px){
+    @media(max-width: ${({ theme }) => theme.mobile}){
         width: 50%;
     }
 `;
@@ -74,15 +74,15 @@ export const ModalBody = styled.div`
         font-size: 1em;
         font-weight: bold;
         border-radius: 20px;
-        border: 2px solid blue;
+        border: 2px solid  ${({ theme }) => theme.colors.primary};
         background-color:transparent;
-        color: blue;
+        color:  ${({ theme }) => theme.colors.primary};
         margin-bottom: .7em;
         cursor:pointer;
     }
 
     & > form > button:hover{
-        background-color:blue;
+        background-color: ${({ theme }) => theme.colors.primary};
         color:white;
     }
 `;

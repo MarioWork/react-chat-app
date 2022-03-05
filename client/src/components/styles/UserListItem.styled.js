@@ -9,7 +9,7 @@ export const StyledUserListItem = styled.div`
     border-radius: 55px;
     padding-right: 1em;
    
-    @media(max-width: 768px){
+    @media(max-width: ${({ theme }) => theme.mobile}){
         width: 90%;
     }
 
