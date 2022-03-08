@@ -84,7 +84,7 @@ const ChatContainer = ({ selectedChannel, client }) => {
 
 {
   /* <Chat client={client}>
-        <Channel channel={selectedChannel}>
+        <Channel channel={selectedChannel}>eEEEEEEEE
           <Window>
             <ChannelHeader />
             <MessageList />
