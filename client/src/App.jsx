@@ -78,7 +78,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        (
         <SideBar
           client={client}
           setSelectedChannel={setSelectedChannel}

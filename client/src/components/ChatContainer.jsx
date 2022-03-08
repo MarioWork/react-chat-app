@@ -62,7 +62,7 @@ const ChatContainer = ({ selectedChannel, client }) => {
       addedMemberToChannel.unsubscribe();
       removeMemberFromChannel.unsubscribe();
     };
-  }, []);
+  }, [selectedChannel]);
 
   return (
     <StyledChatContainer>
