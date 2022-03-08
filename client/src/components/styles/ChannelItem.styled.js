@@ -16,13 +16,13 @@ export const StyledChannelItem = styled.div`
 
         & > p{
             font-size: 1em;
+        }
     }
-}
     
     &:hover{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-}
+    }
 
     & > h2{
         display: flex;
@@ -34,13 +34,14 @@ export const StyledChannelItem = styled.div`
         margin-right: .5rem;
         border-radius: 50%;
         border: 3px solid #DBDBDB;
-}
+        color: ${({ theme }) => theme.colors.primary};
+    }
 
 
     & > p{
         padding-right: .5em;
         margin-right: auto;
-}
+    }
 
     & > img{
         width: 50px;
@@ -49,7 +50,12 @@ export const StyledChannelItem = styled.div`
         border: 3px solid #DBDBDB;
         object-fit: cover;
         margin-right: .5rem;
-}
+    }
+
+    & > span{
+        color: ${({ theme }) => theme.colors.primary};
+    }
+
 `;
 
 export const Line = styled.span`

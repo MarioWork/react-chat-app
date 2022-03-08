@@ -23,6 +23,7 @@ export const StyledUserListItem = styled.div`
         margin-right: .5rem;
         border-radius: 0 50% 50% 0;;
         border-right: 3px solid #DBDBDB;
+        color: ${({ theme }) => theme.colors.primary};  
     }
 
 

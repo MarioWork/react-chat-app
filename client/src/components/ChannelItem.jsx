@@ -35,7 +35,9 @@ const ChannelItem = ({
         )}
         <p>{channel.data.name}</p>
         {isOwner && selectedChannel === channel && (
-          <FaUser onClick={addMemberClick} />
+          <span>
+            <FaUser onClick={addMemberClick} />
+          </span>
         )}
       </StyledChannelItem>
       <Line />
