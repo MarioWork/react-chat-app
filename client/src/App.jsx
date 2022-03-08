@@ -78,16 +78,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        {selectedChannel && (
-          <SideBar
-            client={client}
-            setSelectedChannel={setSelectedChannel}
-            setShowMemberList={setShowMemberList}
-            setShowCreateChannelModal={setShowCreateChannelModal}
-            selectedChannel={selectedChannel}
-            channels={channels}
-          />
-        )}
+        (
+        <SideBar
+          client={client}
+          setSelectedChannel={setSelectedChannel}
+          setShowMemberList={setShowMemberList}
+          setShowCreateChannelModal={setShowCreateChannelModal}
+          selectedChannel={selectedChannel}
+          channels={channels}
+        />
         {showMemberList && (
           <MembersList
             client={client}
@@ -104,9 +103,7 @@ function App() {
         {
           //Render only if there is a selected channel
         }
-        {selectedChannel && (
-          <ChatContainer client={client} selectedChannel={selectedChannel} />
-        )}
+        <ChatContainer client={client} selectedChannel={selectedChannel} />
       </AppContainer>
     </ThemeProvider>
   );

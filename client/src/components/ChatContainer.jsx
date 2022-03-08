@@ -38,7 +38,14 @@ const ChatContainer = ({ selectedChannel, client }) => {
   }
   */
 
+  //When members are added or removed from channel update counter
   useEffect(() => {
+    if (!selectedChannel) {
+      return;
+    }
+
+    setMembersCounter(selectedChannel.data.member_count);
+
     const addedMemberToChannel = client.on("member.added", (e) => {
       if (e.channel_id === selectedChannel.id) {
         setMembersCounter((prevCounter) => (prevCounter = prevCounter + 1));
@@ -57,19 +64,19 @@ const ChatContainer = ({ selectedChannel, client }) => {
     };
   }, []);
 
-  useEffect(() => {
-    setMembersCounter(selectedChannel.data.member_count);
-  }, [selectedChannel]);
-
   return (
     <StyledChatContainer>
       <StyledChat>
-        <StyledChatHeader>
-          <h2>{firstCharToUpperCaseString(selectedChannel.data.name)}</h2>
-          <h5>
-            {`${membersCounter} ${membersCounter != 1 ? "members" : "member"}`}
-          </h5>
-        </StyledChatHeader>
+        {selectedChannel && (
+          <StyledChatHeader>
+            <h2>{firstCharToUpperCaseString(selectedChannel.data.name)}</h2>
+            <h5>
+              {`${membersCounter} ${
+                membersCounter != 1 ? "members" : "member"
+              }`}
+            </h5>
+          </StyledChatHeader>
+        )}
       </StyledChat>
     </StyledChatContainer>
   );
