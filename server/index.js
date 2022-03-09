@@ -12,10 +12,6 @@ app.use(cors());
 app.use(express.json()); //allow to pass json payloads from the frontend to the backend
 app.use(express.urlencoded());
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
-
 
 app.use("/auth", authRoutes)
 

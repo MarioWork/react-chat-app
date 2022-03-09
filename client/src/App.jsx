@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { StreamChat } from "stream-chat";
 import { API_KEY } from "./secrets";
 import { theme } from "./Theme";
@@ -21,6 +21,7 @@ function App() {
   const [showCreateChannelModal, setShowCreateChannelModal] = useState(false);
   const [channels, setChannels] = useState([]);
   const [selectedChannel, setSelectedChannel] = useState(null);
+
   useEffect(() => {
     //Check if there is a user logged in
     if (authToken) {
@@ -79,7 +80,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <AppContainer>
         <SideBar
-          client={client}
           setSelectedChannel={setSelectedChannel}
           setShowMemberList={setShowMemberList}
           setShowCreateChannelModal={setShowCreateChannelModal}
