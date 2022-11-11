@@ -12,7 +12,7 @@ This project consists of a simple chat app in react using [getStream](https://ge
 + REST
 + API
 + WebSockets
-+ [getStream](https://getstream.io
++ [getStream](https://getstream.io/)
 
 ## Collaborators
 [Mario Vieira](https://github.com/MarioWork)
